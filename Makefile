@@ -6,11 +6,9 @@
 #    By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:42:46 by rpaparon          #+#    #+#              #
-#    Updated: 2025/03/05 16:31:50 by rpaparon         ###   ########.fr        #
+#    Updated: 2025/03/05 16:33:11 by rpaparon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-
 
 NAME = so_long
 
