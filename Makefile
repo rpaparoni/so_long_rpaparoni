@@ -6,7 +6,7 @@
 #    By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:42:46 by rpaparon          #+#    #+#              #
-#    Updated: 2025/03/05 16:14:49 by rpaparon         ###   ########.fr        #
+#    Updated: 2025/03/05 16:31:50 by rpaparon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,11 @@ NAME = so_long
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
+
+MLX_DIR = minilibx-linux
+MLX_LIB = $(MLX_DIR)/libmlx.a
+MLX_INC = -I $(MLX_DIR)
+MLX_FLAGS = -L $(MLX_DIR) -lmlx -lX11 -lXext -lm
 
 SOURCES = sources/*.c
 OBJECTS = $(SOURCES:.c=.o)
@@ -40,15 +45,10 @@ all: banner $(NAME)
 
 bonus: banner $(NAME_BONUS)
 
-$(NAME): $(OBJECTS) $(LIBFT)
+$(NAME): $(OBJECTS) $(LIBFT) $(MLX_LIB)
 	@echo "$(CYAN)Linking $(NAME)...$(RESET)"
 	@$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
 	@echo "$(GREEN)✔ $(NAME) compiled successfully!$(RESET)"
-
-$(NAME_BONUS): $(OBJECTS_BONUS) $(LIBFT)
-	@echo "$(CYAN)Linking $(NAME_BONUS)...$(RESET)"
-	@$(CC) $(CFLAGS) $(OBJECTS_BONUS) $(LIBFT) -o $(NAME_BONUS)
-	@echo "$(GREEN)✔ $(NAME_BONUS) compiled successfully!$(RESET)"
 
 %.o: %.c
 	@echo "$(YELLOW)Compiling $<...$(RESET)"
@@ -58,15 +58,21 @@ $(LIBFT):
 	@echo "$(BLUE)Compiling libft...$(RESET)"
 	@$(MAKE) -C $(LIBFT_DIR) --silent
 
+$(MLX_LIB):
+	@echo "$(BLUE)Compiling minilibx...$(RESET)"
+	@$(MAKE) -C $(MLX_DIR) --silent
+
 clean:
 	@echo "$(RED)Cleaning object files...$(RESET)"
 	@$(RM) $(OBJECTS) $(OBJECTS_BONUS)
 	@$(MAKE) -C $(LIBFT_DIR) clean --silent
+	@$(MAKE) -C $(MLX_DIR) clean --silent
 
 fclean: clean
 	@echo "$(RED)Removing $(NAME)...$(RESET)"
 	@$(RM) $(NAME) $(NAME_BONUS)
 	@$(MAKE) -C $(LIBFT_DIR) fclean --silent
+	@$(MAKE) -C $(MLX_DIR) clean --silent
 
 re: fclean all
 
