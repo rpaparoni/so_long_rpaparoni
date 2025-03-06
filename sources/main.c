@@ -6,38 +6,59 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:04:58 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/01/21 20:44:26 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/03/06 10:46:45 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlx/mlx.h"
-#include <stdlib.h>
+#include "../minilibx-linux/mlx.h"
+#include "../include/so_long.h"
 
-int close_window(int keycode, void *param)
+int	close_window(int keycode, t_game *game)
 {
-    if (keycode == 65307)
-    {
-        mlx_destroy_window(param, param);
-        exit(0);
-    }
-    return (0);
+	if (keycode == 65307) // Tecla ESC
+	{
+		if (game->img)
+			mlx_destroy_image(game->mlx, game->img);
+		if (game->win)
+			mlx_destroy_window(game->mlx, game->win);
+		if (game->mlx)
+			mlx_destroy_display(game->mlx);
+		free(game->mlx);
+		exit(0);
+	}
+	return (0);
 }
-int main(void)
+
+int	main(void)
 {
-    void	*mlx;
-    void	*mlx_win;
-	void	*img;
-	int	width;
-    int	height;
+	t_game	game;
+	int		width;
+	int		height;
 	char	*relative_path = "textures/open24.xpm";
 
-    mlx = mlx_init();
-    mlx_win = mlx_new_window(mlx, 1920, 1080, "so_long");
-	img = mlx_xpm_file_to_image(mlx, relative_path, &width, &height);
-	mlx_put_image_to_window(mlx, mlx_win, img, 500, 500);
-	mlx_key_hook(mlx_win, close_window, mlx_win);
+	// Inicializar MiniLibX
+	game.mlx = mlx_init();
+	if (!game.mlx)
+		return (1);
 
-    mlx_loop(mlx);
+	// Crear ventana
+	game.win = mlx_new_window(game.mlx, 1920, 1080, "so_long");
+	if (!game.win)
+		return (1);
 
-    return 0;
+	// Cargar imagen
+	game.img = mlx_xpm_file_to_image(game.mlx, relative_path, &width, &height);
+	if (!game.img)
+		return (1);
+
+	// Poner imagen en la ventana
+	mlx_put_image_to_window(game.mlx, game.win, game.img, 500, 500);
+
+	// Manejo de teclas
+	mlx_key_hook(game.win, close_window, &game);
+
+	// Iniciar loop de eventos
+	mlx_loop(game.mlx);
+
+	return (0);
 }

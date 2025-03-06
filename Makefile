@@ -6,7 +6,7 @@
 #    By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:42:46 by rpaparon          #+#    #+#              #
-#    Updated: 2025/03/05 16:33:11 by rpaparon         ###   ########.fr        #
+#    Updated: 2025/03/06 10:40:47 by rpaparon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ MLX_LIB = $(MLX_DIR)/libmlx.a
 MLX_INC = -I $(MLX_DIR)
 MLX_FLAGS = -L $(MLX_DIR) -lmlx -lX11 -lXext -lm
 
-SOURCES = sources/*.c
+SOURCES = sources/main.c sources/game.c
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = cc
@@ -45,7 +45,7 @@ bonus: banner $(NAME_BONUS)
 
 $(NAME): $(OBJECTS) $(LIBFT) $(MLX_LIB)
 	@echo "$(CYAN)Linking $(NAME)...$(RESET)"
-	@$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MLX_LIB) -o $(NAME)
 	@echo "$(GREEN)✔ $(NAME) compiled successfully!$(RESET)"
 
 %.o: %.c
