@@ -6,7 +6,7 @@
 #    By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:42:46 by rpaparon          #+#    #+#              #
-#    Updated: 2025/03/07 14:39:16 by rpaparon         ###   ########.fr        #
+#    Updated: 2025/03/07 14:41:19 by rpaparon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ $(LIBFT):
 	@echo "$(BLUE)Compiling libft...$(RESET)"
 	@$(MAKE) -C $(LIBFT_DIR) --silent
 
-$(MLX_LIB):
+$(MLX):
 	@echo "$(BLUE)Compiling minilibx...$(RESET)"
 	@$(MAKE) -C $(MLX_DIR) --silent
 
