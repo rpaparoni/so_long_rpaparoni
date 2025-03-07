@@ -6,7 +6,7 @@
 #    By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:42:46 by rpaparon          #+#    #+#              #
-#    Updated: 2025/03/06 10:40:47 by rpaparon         ###   ########.fr        #
+#    Updated: 2025/03/07 14:39:16 by rpaparon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,9 @@ NAME = so_long
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-MLX_DIR = minilibx-linux
-MLX_LIB = $(MLX_DIR)/libmlx.a
-MLX_INC = -I $(MLX_DIR)
-MLX_FLAGS = -L $(MLX_DIR) -lmlx -lX11 -lXext -lm
+MLX_DIR = ./minilibx-linux
+MLX = $(MLX_DIR)/libmlx_Linux.a
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 
 SOURCES = sources/main.c sources/game.c
 OBJECTS = $(SOURCES:.c=.o)
@@ -43,9 +42,9 @@ all: banner $(NAME)
 
 bonus: banner $(NAME_BONUS)
 
-$(NAME): $(OBJECTS) $(LIBFT) $(MLX_LIB)
+$(NAME): $(OBJECTS) $(LIBFT) $(MLX)
 	@echo "$(CYAN)Linking $(NAME)...$(RESET)"
-	@$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MLX_LIB) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
 	@echo "$(GREEN)✔ $(NAME) compiled successfully!$(RESET)"
 
 %.o: %.c
