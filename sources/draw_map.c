@@ -6,8 +6,13 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/17 17:30:06 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:50:55 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-test
+#include "so_long.h"
+
+void    check_map()
+{
+    
+}
