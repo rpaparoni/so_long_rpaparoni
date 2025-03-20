@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-    Created: 2025/03/05 15:42:46 by rpaparon          #+#    #+#              #
-#    Updated: 2025/03/07 14:41:19 by rpaparon         ###   ########.fr        #
+#    Created: 2025/03/05 15:42:46 by rpaparon          #+#    #+#              #
+#    Updated: 2025/03/20 16:55:04 by rpaparon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,12 @@ MLX_DIR = ./minilibx-linux
 MLX = $(MLX_DIR)/libmlx_Linux.a
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 
-SOURCES = sources/main.c sources/game.c
+SOURCES = sources/main.c \
+		  sources/game.c \
+		  sources/hooks.c \
+		  sources/map.c \
+		  sources/render.c \
+		  sources/utils.c
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = cc
