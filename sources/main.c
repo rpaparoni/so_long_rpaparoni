@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:04:58 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/20 17:57:24 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/03/24 15:14:53 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(void)
 	t_game	game;
 	int		width;
 	int		height;
-	char	*relative_path = "textures/gus.xpm";
+	char	*relative_path = "textures/veneco2.xpm";
 
 	// Inicializar MiniLibX
 	game.mlx = mlx_init();
