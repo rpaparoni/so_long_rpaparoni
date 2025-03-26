@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/25 14:42:55 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/03/26 13:20:30 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ typedef struct s_game
 	void	*floor;
 	void	*collectible;
 	void	*exit;
+	void	**map;
+	void	*map_width;
+	void	*map_height;
 }	t_game;
 
 int	close_window(int keycode, t_game *game);
