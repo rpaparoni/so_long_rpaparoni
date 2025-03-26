@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:04:58 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/26 13:36:51 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/03/26 14:11:10 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	close_window(int keycode, t_game *game)
 int	main(void)
 {
 	t_game	game;
-	char	*relative_path = "textures/veneco2.xpm";
 
 	// chequear mapa
 	game.map_height = 5;
