@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:04:58 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/26 14:11:10 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/03/27 13:35:39 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	close_window(int keycode, t_game *game)
 	return (0);
 }
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
 	t_game	game;
 
-	// chequear mapa
+	cheak_map(argc, argv[1], &game);
 	game.map_height = 5;
 	game.map_width = 5;
 	game.mlx = mlx_init();

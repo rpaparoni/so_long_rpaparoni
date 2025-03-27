@@ -6,13 +6,26 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/20 16:57:19 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/03/27 14:22:26 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void    check_map()
+
+
+void    check_map(int argc, char *map, t_game *game)
 {
-    
+    int    size;
+
+    if (argc != 2)
+    {
+        if (argc < 2)
+            ft_printf("Error\nToo few arguments\n");
+        else
+            ft_printf("Error\nToo many arguments\n");
+        exit(EXIT_FAILURE);
+    }
+    size = ft_strlen(map);
+
 }
