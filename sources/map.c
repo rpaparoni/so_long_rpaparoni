@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/27 16:01:33 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:07:13 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void    check_map(int argc, char *map, t_game *game)
     }
     size = ft_strlen(map);
     cheack_file(map, size);
-
+    red_file(map, game);
+    check_walls(game);
 }
