@@ -6,13 +6,19 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/27 14:22:26 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:01:33 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-
+void    cheack_file(char *map, size_t size)
+{
+    if (size < 4)
+        ft_error("Map file is too short");
+    if (ft_strncmp(map + size - 4, ".ber", 4))
+        ft_error("Map file must have a .ber extension");
+}
 
 void    check_map(int argc, char *map, t_game *game)
 {
@@ -27,5 +33,6 @@ void    check_map(int argc, char *map, t_game *game)
         exit(EXIT_FAILURE);
     }
     size = ft_strlen(map);
+    cheack_file(map, size);
 
 }
