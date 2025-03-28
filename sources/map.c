@@ -6,11 +6,21 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/27 17:07:13 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/03/28 14:18:53 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void    check_walls(t_game *game)
+{
+    
+}
+
+void    red_file(char *map, t_game *game)
+{
+    
+}
 
 void    cheack_file(char *map, size_t size)
 {
