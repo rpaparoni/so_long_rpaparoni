@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/28 14:18:53 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/03/30 13:33:37 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,25 @@ void    check_walls(t_game *game)
 
 void    red_file(char *map, t_game *game)
 {
-    
+    int     fd;
+    char    *line;
+    int     i;
+
+    fd = open(map, O_RDONLY);
+    if (fd < 0)
+        ft_error("Error\nMap file not found");
+    i = 0;
+    while (get_next_line(fd, &line))
+    {
+        if (i == 0)
+            game->map = ft_strdup(line);
+        else
+            game->map = ft_strjoin(game->map, line);
+        game->map = ft_strjoin(game->map, "\n");
+        i++;
+    }
+    free(line);
+    close(fd);   
 }
 
 void    cheack_file(char *map, size_t size)
