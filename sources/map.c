@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/08 16:45:34 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:33:45 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,25 @@
 
 void    check_walls(t_game *game)
 {
-    int    i;
-    int    j;
+    int	i;
 
-    i = 0;
-    while (i < game->map_height)
-    {
-        j = 0;
-        while (j < game->map_width)
-        {
-            if (game->map[i][j] != '1')
-            {
-                ft_error("Error\nMap is not surrounded by walls");
-                return ;
-            }
-            j++;
-        }
-        i++;
-    }
+	if (!game->map || game-> <= 0 || game->columns <= 0)
+		return (0);
+	i = 0;
+	while (i < vars->columns)
+	{
+		if (vars->map[0][i] != '1' || vars->map[vars->rows - 1][i] != '1')
+			return (0);
+		i++;
+	}
+	i = 0;
+	while (i < vars->rows)
+	{
+		if (vars->map[i][0] != '1' || vars->map[i][vars->columns - 1] != '1')
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 void    red_file(char *map, t_game *game)

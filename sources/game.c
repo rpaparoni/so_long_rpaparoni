@@ -6,9 +6,10 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:06 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/20 16:56:53 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:30:22 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minilibx-linux/mlx.h"
 #include "../include/so_long.h"
+

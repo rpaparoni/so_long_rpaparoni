@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:04:58 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/27 13:35:39 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:28:29 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,7 @@ int	main(int argc, char *argv[])
 	game.map_width = 5;
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, 1920, 1080, "so_long");
-	
-	mlx_put_image_to_window(game.mlx, game.win, game.img, 500, 500);
-
-	// Manejo de teclas
-	mlx_key_hook(game.win, close_window, &game);
-
-	// Iniciar loop de eventos
-	mlx_loop(game.mlx);
-
+	// meter las imagenes
+	mlx_key_hook(game.win, hooks, &game);
 	return (0);
 }
