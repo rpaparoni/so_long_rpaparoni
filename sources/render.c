@@ -6,14 +6,20 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/08 13:21:44 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/08 16:54:45 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minilibx-linux/mlx.h"
 #include "../include/so_long.h"
 
-int	item_count;
+int	item_count
+{
+    game->n_moves = 0;
+    game->n_collectible = 0;
+    game->n_exit = 0;
+    game->n_player = 0;
+}
 
 char    *get_texture(t_game *game, char c)
 {

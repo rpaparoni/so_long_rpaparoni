@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/05 02:38:11 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/08 16:45:34 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void    check_walls(t_game *game)
         {
             if (game->map[i][j] != '1')
             {
-                ft_printf("Error\nMap is not surrounded by walls\n");
-                exit(EXIT_FAILURE);
+                ft_error("Error\nMap is not surrounded by walls");
+                return ;
             }
             j++;
         }
