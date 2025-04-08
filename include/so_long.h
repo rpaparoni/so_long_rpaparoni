@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/08 16:55:11 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/08 16:57:09 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void	ft_error(char *msg);
 void	cheack_file(char *map, size_t size);
 void	red_file(char *map, t_game *game);
 void	check_walls(t_game *game);
-void	cheak_map(int argc, char *map, t_game *game);
+void	check_map(int argc, char *map, t_game *game);
 
 #endif
