@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/26 13:20:30 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/08 13:23:58 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ typedef struct s_game
 }	t_game;
 
 int	close_window(int keycode, t_game *game);
-int	main(void);
+int	main(int argc, char *argv[]);
+void	ft_error(char *msg);
+void	cheack_file(char *map, size_t size);
+void	red_file(char *map, t_game *game);
+void	check_walls(t_game *game);
+void	cheak_map(int argc, char *map, t_game *game);
 
 #endif
