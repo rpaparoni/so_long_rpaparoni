@@ -6,14 +6,14 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/08 17:31:06 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:32:19 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minilibx-linux/mlx.h"
 #include "../include/so_long.h"
 
-int	item_count
+int	item_count(t_game *game, char c)
 {
     game->n_moves = 0;
     game->n_collectible = 0;
