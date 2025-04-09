@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/08 17:20:23 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:59:34 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,12 @@ void ft_clean(t_game *game)
     free(game->mlx);
     exit(0);
 }
+
+int	item_count(t_game *game)
+{
+    game->n_moves = 0;
+    game->n_collectible = 0;
+    game->n_exit = 0;
+    game->n_player = 0;
+}
+
