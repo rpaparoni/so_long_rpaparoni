@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/08 17:29:54 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:42:18 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_game
 	void	*collectible;
 	void	*exit;
 	void	**map;
-	void	*map_width;
-	void	*map_height;
+	int	columns;
+	int	rows;
 	int	n_moves;
 	int	n_collectible;
 	int	n_exit;

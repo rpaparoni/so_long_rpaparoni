@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/08 17:33:45 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:41:31 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,9 @@ void    check_map(int argc, char *map, t_game *game)
     if (argc != 2)
     {
         if (argc < 2)
-            ft_printf("Error\nToo few arguments\n");
+            ft_error("Error\nNo map file provided", NULL);
         else
-            ft_printf("Error\nToo many arguments\n");
-        exit(EXIT_FAILURE);
+            ft_error("Error\nToo many arguments", NULL);
     }
     size = ft_strlen(map);
     cheack_file(map, size);
