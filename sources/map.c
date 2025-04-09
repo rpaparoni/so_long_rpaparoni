@@ -6,29 +6,29 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/09 15:41:31 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:29:58 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void    check_walls(t_game *game)
+int	check_walls(t_game *game)
 {
     int	i;
 
-	if (!game->map || game-> <= 0 || game->columns <= 0)
+	if (!game->map || game->rows <= 0 || game->columns <= 0)
 		return (0);
 	i = 0;
-	while (i < vars->columns)
+	while (i < game->columns)
 	{
-		if (vars->map[0][i] != '1' || vars->map[vars->rows - 1][i] != '1')
+		if (game->map[0][i] != '1' || game->map[game->rows - 1][i] != '1')
 			return (0);
 		i++;
 	}
 	i = 0;
-	while (i < vars->rows)
+	while (i < game->rows)
 	{
-		if (vars->map[i][0] != '1' || vars->map[i][vars->columns - 1] != '1')
+		if (game->map[i][0] != '1' || game->map[i][game->columns - 1] != '1')
 			return (0);
 		i++;
 	}
@@ -42,7 +42,7 @@ void    red_file(char *map, t_game *game)
 
     fd = open(map, O_RDONLY);
     if (fd < 0)
-        ft_error("Error\nMap file not found");
+        ft_error("Error\nMap file not found", NULL);
     
     close(fd);
 }
@@ -50,9 +50,9 @@ void    red_file(char *map, t_game *game)
 void    cheack_file(char *map, size_t size)
 {
     if (size < 4)
-        ft_error("Map file is too short");
+        ft_error("Map file is too short", NULL);
     if (ft_strncmp(map + size - 4, ".ber", 4))
-        ft_error("Map file must have a .ber extension");
+        ft_error("Map file must have a .ber extension", NULL);
 }
 
 void    check_map(int argc, char *map, t_game *game)
