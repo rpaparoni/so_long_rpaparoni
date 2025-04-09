@@ -6,12 +6,14 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/09 18:02:25 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:28:00 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minilibx-linux/mlx.h"
 #include "../include/so_long.h"
+
+// cargar lS LETRAS
 
 void load_images(t_game *game)
 {
