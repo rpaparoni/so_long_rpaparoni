@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:04:58 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/09 18:27:35 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/11 01:38:47 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char *argv[])
 	game.columns = game.columns * 64;
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.columns, game.rows, "so_long");
-	// meter las imagenes
+	render_game(&game);
 	//inicializar el loop
 	mlx_key_hook(game.win, hooks, &game);
 	return (0);
