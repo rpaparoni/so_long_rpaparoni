@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/11 02:16:54 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/11 02:33:00 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	place_img(char lettre, int x, int y, t_game *game)
 		game->n_exit_close++;
 		mlx_put_image_to_window(game->mlx, game->win, game->exit_close, x * 64, y * 64);
 	}
-}
+} 
 
 void load_images(t_game *game)
 {
