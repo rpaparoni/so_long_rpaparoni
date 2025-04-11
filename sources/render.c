@@ -6,19 +6,35 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/11 03:47:12 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/11 03:48:06 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minilibx-linux/mlx.h"
 #include "../include/so_long.h"
 
-void start_counter(char lettre, t_game *game)
+void start_counter(char lettre, t_game *game, int x, int y)
 {
 	if (lettre == 'P')
 	{
-		game->pos_x = x;
-		game->pos_y = y;
+		game->pos_x = x * 64;
+		game->pos_y = y * 64;
+		game->n_player++;
+	}
+	else if (lettre == 'C')
+		game->n_item++;
+	else if (lettre == 'E')
+		game->n_exit_close++;
+	else if (lettre == '1')
+		game->n_wall++;
+	else if (lettre == '0')
+		game->n_floor++;
+}
+{
+	if (lettre == 'P')
+	{
+		game->pos_x = x * 64;
+		game->pos_y = y * 64;
 		game->n_player++;
 	}
 	else if (lettre == 'C')
