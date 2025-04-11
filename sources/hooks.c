@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:22 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/08 17:30:12 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/11 04:30:57 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void    w_key(t_game *game)
 
 void    hooks(int keycode, t_game *game)
 {
-    
+    if 
 }
