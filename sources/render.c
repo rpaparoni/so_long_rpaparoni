@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/11 03:48:06 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/11 03:49:33 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,7 @@ void start_counter(char lettre, t_game *game, int x, int y)
 	else if (lettre == '0')
 		game->n_floor++;
 }
-{
-	if (lettre == 'P')
-	{
-		game->pos_x = x * 64;
-		game->pos_y = y * 64;
-		game->n_player++;
-	}
-	else if (lettre == 'C')
-		game->n_item++;
-	else if (lettre == 'E')
-		game->n_exit_close++;
-	else if (lettre == '1')
-		game->n_wall++;
-	else if (lettre == '0')
-		game->n_floor++;
-}
-{
-	if (lettre)
-}
+
 void	place_img(char lettre, int x, int y, t_game *game)
 {
     if (lettre == '1')
@@ -66,8 +48,8 @@ void	place_img(char lettre, int x, int y, t_game *game)
     else if (lettre == 'P')
         mlx_put_image_to_window(game->mlx, game->win, game->player,
 		x * 64, y * 64);
-	start_counter(game);
-	}
+	start_counter(game, lettre, x, y);
+}
 
 void load_images(t_game *game)
 {
