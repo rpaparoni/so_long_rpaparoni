@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/16 14:22:28 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:02:11 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ void    check_letters(t_game *game)
 void    load_images(t_game *game)
 {
     game->player = mlx_xpm_file_to_image(game->mlx, "./textures/player.xpm",
-        &game->columns, &game->rows);
+        &game->texture_height, &game->texture_width);
     game->wall = mlx_xpm_file_to_image(game->mlx, "./textures/wall.xpm",
-        &game->columns, &game->rows);
+        &game->texture_height, &game->texture_width);
     game->floor = mlx_xpm_file_to_image(game->mlx, "./textures/floor.xpm",
-        &game->columns, &game->rows);
+        &game->texture_height, &game->texture_width);
     game->item = mlx_xpm_file_to_image(game->mlx, "./textures/item.xpm",
-        &game->columns, &game->rows);
+        &game->texture_height, &game->texture_width);
     game->exit_close = mlx_xpm_file_to_image(game->mlx, "./textures/exit_close.xpm",
-        &game->columns, &game->rows);
+        &game->texture_height, &game->texture_width);
     game->exit_open = mlx_xpm_file_to_image(game->mlx, "./textures/exit_open.xpm",
-        &game->columns, &game->rows);
+        &game->texture_height, &game->texture_width);
     item_count(game);
 }
 
@@ -61,6 +61,8 @@ void	place_img(char lettre, int x, int y, t_game *game)
     else if (lettre == 'P')
         mlx_put_image_to_window(game->mlx, game->win, game->player,
 		x * 64, y * 64);
+    else
+        ft_kill("Error: Invalid character in map", game);
 }
 
 

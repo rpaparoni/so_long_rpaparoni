@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/16 14:23:53 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 14:58:36 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_game
 	int	n_player;
 	int	pos_x;
 	int	pos_y;
+	int	texture_width;
+	int	texture_height;
 }	t_game;
 
 int		main(int argc, char *argv[]);
