@@ -6,13 +6,13 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/11 04:30:11 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:31:56 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void ft_error(char *msg, t_game *game)
+void ft_kill(char *msg, t_game *game)
 {
     ft_printf("Error\n%s\n", msg);
     ft_clean(game);
@@ -48,18 +48,3 @@ int	item_count(t_game *game)
     game->n_player = 0;
 }
 
-int	close_window(int keycode, t_game *game)
-{
-	if (keycode == 65307)
-	{
-		if (game->img)
-			mlx_destroy_image(game->mlx, game->img);
-		if (game->win)
-			mlx_destroy_window(game->mlx, game->win);
-		if (game->mlx)
-			mlx_destroy_display(game->mlx);
-		free(game->mlx);
-		exit(0);
-	}
-	return (0);
-}

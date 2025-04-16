@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/11 03:53:35 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:35:20 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 void	check_letters(t_game *game)
 {
 	if (game->n_player != 1)
-		ft_error("Error: There must be one player", game);
+		ft_kill("Error: There must be one player", game);
 	if (game->n_exit_close != 1)
-		ft_error("Error: There must be one exit", game);
+		ft_kill("Error: There must be one exit", game);
 	if (game->n_item < 1)
-		ft_error("Error: There must be at least one item", game);
+		ft_kill("Error: There must be at least one item", game);
 	if (game->n_wall < 1)
-		ft_error("Error: There must be at least one wall", game);
+		ft_kill("Error: There must be at least one wall", game);
 	if (game->n_floor < 1)
-		ft_error("Error: There must be at least one floor", game);
+		ft_kill("Error: There must be at least one floor", game);
 }
 
 void start_counter(char lettre, t_game *game, int x, int y)

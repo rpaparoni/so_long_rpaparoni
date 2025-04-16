@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/09 16:29:58 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:36:05 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void    red_file(char *map, t_game *game)
 
     fd = open(map, O_RDONLY);
     if (fd < 0)
-        ft_error("Error\nMap file not found", NULL);
+        ft_kill("Error\nMap file not found", NULL);
     
     close(fd);
 }
@@ -50,9 +50,9 @@ void    red_file(char *map, t_game *game)
 void    cheack_file(char *map, size_t size)
 {
     if (size < 4)
-        ft_error("Map file is too short", NULL);
+        ft_kill("Map file is too short", NULL);
     if (ft_strncmp(map + size - 4, ".ber", 4))
-        ft_error("Map file must have a .ber extension", NULL);
+        ft_kill("Map file must have a .ber extension", NULL);
 }
 
 void    check_map(int argc, char *map, t_game *game)
@@ -62,9 +62,9 @@ void    check_map(int argc, char *map, t_game *game)
     if (argc != 2)
     {
         if (argc < 2)
-            ft_error("Error\nNo map file provided", NULL);
+            ft_kill("Error\nNo map file provided", NULL);
         else
-            ft_error("Error\nToo many arguments", NULL);
+            ft_kill("Error\nToo many arguments", NULL);
     }
     size = ft_strlen(map);
     cheack_file(map, size);
