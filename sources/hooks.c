@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:22 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/16 12:57:28 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 13:15:43 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void    w_key(t_game *game)
         game->pos_x, game->pos_y);
 }
 
-void    hooks(int keycode, t_game *game)
+int    hooks(int keycode, t_game *game)
 {
     if (keycode == 65362 || keycode == 119)
         w_key(game);
@@ -54,6 +54,5 @@ void    hooks(int keycode, t_game *game)
         d_key(game);
     else if (keycode == 65307)
         ft_kill("Game closed", game);
-    else
-        return ;
+    return (0);
 }

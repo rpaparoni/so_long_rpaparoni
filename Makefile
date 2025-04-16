@@ -6,7 +6,7 @@
 #    By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:42:46 by rpaparon          #+#    #+#              #
-#    Updated: 2025/03/20 16:55:04 by rpaparon         ###   ########.fr        #
+#    Updated: 2025/04/16 13:10:58 by rpaparon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ MLX = $(MLX_DIR)/libmlx_Linux.a
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 
 SOURCES = sources/main.c \
-		  sources/game.c \
 		  sources/hooks.c \
 		  sources/map.c \
 		  sources/render.c \

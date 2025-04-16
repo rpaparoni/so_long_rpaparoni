@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/16 12:36:05 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 13:52:53 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,9 @@ int	check_walls(t_game *game)
 	return (1);
 }
 
-void    red_file(char *map, t_game *game)
+void    red_file(char *map)
 {
     int     fd;
-    char    *line;
 
     fd = open(map, O_RDONLY);
     if (fd < 0)
@@ -47,7 +46,7 @@ void    red_file(char *map, t_game *game)
     close(fd);
 }
 
-void    cheack_file(char *map, size_t size)
+void    check_file(char *map, size_t size)
 {
     if (size < 4)
         ft_kill("Map file is too short", NULL);
@@ -67,7 +66,7 @@ void    check_map(int argc, char *map, t_game *game)
             ft_kill("Error\nToo many arguments", NULL);
     }
     size = ft_strlen(map);
-    cheack_file(map, size);
-    red_file(map, game);
+    check_file(map, size);
+    red_file(map);
     check_walls(game);
 }
