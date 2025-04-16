@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/16 12:31:56 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:55:45 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,11 @@ int	item_count(t_game *game)
     game->n_floor = 0;
     game->n_item = 0;
     game->n_player = 0;
+}
+
+void    move_printer(t_game *game)
+{
+    ft_printf("Total Moves: %d\n", game->n_moves);
+    game->n_moves++;
 }
 

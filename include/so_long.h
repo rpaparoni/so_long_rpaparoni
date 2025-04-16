@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/11 02:12:08 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:54:52 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct s_game
 	int	n_floor;
 	int	n_item;
 	int	n_player;
-
 	int	pos_x;
 	int	pos_y;
 }	t_game;
