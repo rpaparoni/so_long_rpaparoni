@@ -1,4 +1,4 @@
-# so_long
+# so_long 🧙‍♂️
 
 so_long es un pequeño juego en 2D desarrollado en C utilizando la biblioteca gráfica **MiniLibX**. El objetivo del juego es mover al personaje a través del mapa, recoger todos los objetos y llegar a la salida.
 
