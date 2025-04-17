@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/16 17:19:26 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/17 15:21:38 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 void    check_letters(t_game *game)
 {
 	if (game->n_player != 1)
-		ft_kill("Error: There must be one player", game);
+		ft_kill("There must be one player", game);
 	if (game->n_exit_close != 1)
-		ft_kill("Error: There must be one exit", game);
+		ft_kill("There must be one exit", game);
 	if (game->n_item < 1)
-		ft_kill("Error: There must be at least one item", game);
+		ft_kill("There must be at least one item", game);
 	if (game->n_wall < 1)
-		ft_kill("Error: There must be at least one wall", game);
+		ft_kill("There must be at least one wall", game);
 	if (game->n_floor < 1)
-		ft_kill("Error: There must be at least one floor", game);
+		ft_kill("There must be at least one floor", game);
 }
 
 void    load_images(t_game *game)
@@ -62,7 +62,7 @@ void	place_img(char lettre, int x, int y, t_game *game)
         mlx_put_image_to_window(game->mlx, game->win, game->player,
 		x * 64, y * 64);
     else
-        ft_kill("Error: Invalid character in map", game);
+        ft_kill("Invalid character in map", game);
 }
 
 
