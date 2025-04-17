@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/16 15:13:32 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 17:05:30 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	check_letters(t_game *game);
 void	render_game(t_game *game);
 void	ft_kill(char *msg, t_game *game);
 void	check_file(char *map, size_t size);
-void	red_file(char *map);
+void	red_file(char *map, t_game *game);
 void	check_map(int argc, char *map, t_game *game);
 void	ft_clean(t_game *game);
 void	s_key(t_game *game);

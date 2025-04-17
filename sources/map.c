@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/16 13:52:53 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 17:28:30 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,33 @@ int	check_walls(t_game *game)
 	return (1);
 }
 
-void    red_file(char *map)
+void	red_file(char *map, t_game *game)
 {
-    int     fd;
+	int		fd;
+	char	*line;
+	char	**map_lines;
 
-    fd = open(map, O_RDONLY);
-    if (fd < 0)
-        ft_kill("Error\nMap file not found", NULL);
-    
-    close(fd);
+	game->rows = 0;
+	fd = open(map, O_RDONLY);
+	if (fd < 0)
+		ft_kill("Error\nMap file not found", NULL);
+	line = get_next_line(fd);
+	if (!line)
+		ft_kill("Error\nEmpty map file", NULL);
+	game->columns = ft_strlen(line) - 1;
+	map_lines = malloc(sizeof(char *) * 1000);
+	if (!map_lines)
+		ft_kill("Error\nMemory allocation failed", NULL);
+	while (line != NULL)
+	{
+		map_lines[game->rows] = ft_strdup(line);
+		game->rows++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	map_lines[game->rows] = NULL;
+	game->map = map_lines;
+	close(fd);
 }
 
 void    check_file(char *map, size_t size)
@@ -56,17 +74,19 @@ void    check_file(char *map, size_t size)
 
 void    check_map(int argc, char *map, t_game *game)
 {
-    int    size;
-
-    if (argc != 2)
-    {
-        if (argc < 2)
-            ft_kill("Error\nNo map file provided", NULL);
-        else
-            ft_kill("Error\nToo many arguments", NULL);
-    }
-    size = ft_strlen(map);
-    check_file(map, size);
-    red_file(map);
-    check_walls(game);
+	int	size;
+	
+	if (argc != 2)
+	{
+		if (argc < 2)
+			ft_kill("Error\nNo map file provided", NULL);
+		else
+			ft_kill("Error\nToo many arguments", NULL);
+	}
+	size = ft_strlen(map);
+	check_file(map, size);
+	red_file(map, game);
+	check_walls(game);
+	ft_printf("rows (line count): %d\n", game->rows);
+	ft_printf("columns (line length): %d\n", game->columns);
 }

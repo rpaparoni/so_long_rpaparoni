@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/16 15:02:11 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/16 17:19:26 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void    start_counter(char lettre, t_game *game, int x, int y)
 		game->n_player++;
 	}
 	else if (lettre == 'C')
-		game->n_item++;
+		game->n_item++;     
 	else if (lettre == 'E')
 		game->n_exit_close++;
 	else if (lettre == '1')
