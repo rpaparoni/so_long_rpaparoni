@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:14:09 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/03 20:17:04 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/18 14:57:55 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,19 @@ char	*stash_filling(int fd, char *stash, char *buffer)
 	size = 1;
 	while (!ft_strchr(stash, '\n') && size > 0)
 	{
+		ft_printf("Entrando al bucle de lectura\n");
+		ft_printf("FD: %d | BUFFER_SIZE: %d\n", fd, BUFFER_SIZE);
 		size = read(fd, buffer, BUFFER_SIZE);
+		ft_printf("Bytes leídos: %d\n", size);
+		ft_printf("size: %d\n", size);
 		if (size < 0)
 			return (free (buffer), free (stash), stash = NULL);
 		if (size == 0)
 			return (free (buffer), stash);
 		buffer[size] = '\0';
+		ft_printf("stash: %s\n", stash);
 		stash = ft_strjoin(stash, buffer);
+		ft_printf("stash: %s\n", stash);
 		if (!stash)
 			return (free (buffer), NULL);
 	}
@@ -94,21 +100,26 @@ char	*get_next_line(int fd)
 	char		*line;
 	char		*buffer;
 
+	ft_printf("buffer_size: %d\n", BUFFER_SIZE);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
 		free(stash);
 		return (stash = NULL);
 	}
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	ft_printf("buffer: %p\n", buffer);
 	if (!buffer)
 		return (free(stash), stash = NULL);
 	stash = stash_filling(fd, stash, buffer);
+	ft_printf("stash: %s\n", stash);
 	if (stash == NULL)
 		return (NULL);
 	line = extract_line(stash);
+	ft_printf("line: %s\n", line);
 	if (!line)
 		return (free (stash), stash = NULL);
 	stash = extract_new_stash(stash);
+	ft_printf("new_stash: %s\n", stash);
 	if (!stash)
 		return (free (line), NULL);
 	if (*stash == '\0')
