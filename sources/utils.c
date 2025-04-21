@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/17 15:24:57 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/21 16:55:05 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void    print_moves(t_game *game)
 {
     ft_printf("Total Moves: %d\n", game->n_moves);
     game->n_moves++;
+	ft_printf("items: %d\n", game->n_item);
 }
 
 void	item_count(t_game *game)
@@ -63,4 +64,5 @@ void	item_count(t_game *game)
     game->n_floor = 0;
     game->n_item = 0;
     game->n_player = 0;
+	game->n_moves = 1;
 }
