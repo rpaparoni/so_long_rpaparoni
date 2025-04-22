@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/22 18:24:11 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/23 00:31:34 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,27 +64,26 @@ void	red_file(char *map, t_game *game)
 	close(fd);
 }
 
-void	check_file(char *map, size_t size)
+void	check_file(char *map)
 {
-	if (size < 4)
-		ft_kill("Map file is too short", NULL);
-	if (ft_strncmp(map + size - 4, ".ber", 4))
-		ft_kill("Map file must have a .ber extension", NULL);
+	size_t	size;
+
+	size = ft_strlen(map);
+	if (size < 4 || ft_strncmp(map + size - 4, ".ber", 4) != 0)
+	ft_kill("Map file must have a .ber extension", NULL);
 }
 
 void	check_map(int argc, char *map, t_game *game)
 {
-	int	size;
-
 	if (argc != 2)
 	{
-		if (argc < 2)
-			ft_kill("No map file provided", NULL);
-		else
-			ft_kill("Too many arguments", NULL);
+		ft_kill("Usage: ./so_long <map_file.ber>", NULL);
 	}
-	size = ft_strlen(map);
-	check_file(map, size);
+	ft_printf("map = '%s'\n", map);
+	check_file(map);
 	red_file(map, game);
-	check_walls(game);
+	if (!check_walls(game))
+	{
+		ft_kill("Map is not surrounded by walls", game);
+	}
 }
