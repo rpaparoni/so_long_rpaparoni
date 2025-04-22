@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/21 14:52:47 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:51:15 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,9 @@ void	red_file(char *map, t_game *game)
 
 	game->rows = 0;
 	fd = open(map, O_RDONLY);
-	ft_printf("fd: %d\n", fd);
 	if (fd < 0)
 		ft_kill("Map file not found", NULL);
 	line = get_next_line(fd);
-	ft_printf("line: %s\n", line);
 	if (!line)
 		ft_kill("Empty map file", NULL);
 	game->columns = ft_strlen(line) - 1;
@@ -89,6 +87,4 @@ void    check_map(int argc, char *map, t_game *game)
 	check_file(map, size);
 	red_file(map, game);
 	check_walls(game);
-	ft_printf("rows (line count): %d\n", game->rows);
-	ft_printf("columns (line length): %d\n", game->columns);
 }

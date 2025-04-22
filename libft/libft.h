@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 17:46:50 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/03 20:02:33 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/22 17:50:52 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ void	ft_printid(int value, int *counter);
 
 //gnl
 
-char    *get_next_line(int fd);
-char    *stash_filling(int fd, char *stash, char *buffer);
-char    *extract_line(char *stash);
-char    *extract_new_stash(char *stash);
+char	*get_next_line(int fd);
+char	*stash_filling(int fd, char *stash, char *buffer);
+char	*extract_line(char *stash);
+char	*extract_new_stash(char *stash);
 
 #endif

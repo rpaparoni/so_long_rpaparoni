@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/21 18:46:19 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/22 17:46:40 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 
 void ft_kill(char *msg, t_game *game)
 {
-    ft_printf("Error:\n\t%s\n", msg);
+	if (game->n_item == 0)
+	{
+	ft_printf("\033[92m\n\t%s\n\n\033[0m", msg);
     ft_clean(game);
+    exit(EXIT_FAILURE);
+	}
+    ft_printf("\033[91mError:\n\t%s\n\033[0m", msg);
+	ft_clean(game);
     exit(EXIT_FAILURE);
 }
 
@@ -52,9 +58,8 @@ int	close_game(t_game *game)
 
 void    print_moves(t_game *game)
 {
-    ft_printf("Total Moves: %d\n", game->n_moves);
+    ft_printf("\033[95mTotal Moves: %d\n\033[0m", game->n_moves);
     game->n_moves++;
-	ft_printf("items: %d\n", game->n_item);
 }
 
 void	item_count(t_game *game)

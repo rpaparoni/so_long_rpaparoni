@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:22 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/21 18:44:03 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/22 17:06:20 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void    key_down(t_game *game)
     print_moves(game);
     if (game->map[game->pos_y / 64][game->pos_x / 64] == 'E' 
         && game->n_item == 0)
-        ft_kill("You Won", game); 
+        ft_kill("You Won!!", game); 
 }
 
 void    key_up(t_game *game)
@@ -56,7 +56,7 @@ void    key_up(t_game *game)
     print_moves(game);
     if (game->map[game->pos_y / 64][game->pos_x / 64] == 'E' 
         && game->n_item == 0)
-        ft_kill("You Won", game);
+        ft_kill("You Won!!", game);
 }
 
 void    key_right(t_game *game)
@@ -79,7 +79,7 @@ void    key_right(t_game *game)
     print_moves(game);
     if (game->map[game->pos_y / 64][game->pos_x / 64] == 'E' 
         && game->n_item == 0)
-        ft_kill("You Won", game);
+        ft_kill("You Won!!", game);
 }
 
 void    key_left(t_game *game)
@@ -102,7 +102,7 @@ void    key_left(t_game *game)
     print_moves(game);
     if (game->map[game->pos_y / 64][game->pos_x / 64] == 'E' 
         && game->n_item == 0)
-        ft_kill("You Won", game);
+        ft_kill("You Won!!", game);
 }
 
 int    hooks(int keycode, t_game *game)
