@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/17 15:23:29 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:00:23 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		main(int argc, char *argv[]);
 int		hooks(int keycode, t_game *game);
 int		check_walls(t_game *game);
 int		close_game(t_game *game);
-void 	item_count(t_game *game);
+void	item_count(t_game *game);
 void	load_images(t_game *game);
 void	place_img(char lettre, int x, int y, t_game *game);
 void	check_letters(t_game *game);
@@ -61,12 +61,6 @@ void	check_file(char *map, size_t size);
 void	red_file(char *map, t_game *game);
 void	check_map(int argc, char *map, t_game *game);
 void	ft_clean(t_game *game);
-void	s_key(t_game *game);
-void	a_key(t_game *game);
-void	d_key(t_game *game);
-void	w_key(t_game *game);
 void	print_moves(t_game *game);
-
-
 
 #endif

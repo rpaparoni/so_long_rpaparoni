@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/22 16:51:15 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:24:11 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_walls(t_game *game)
 {
-    int	i;
+	int	i;
 
 	if (!game->map || game->rows <= 0 || game->columns <= 0)
 		return (0);
@@ -64,18 +64,18 @@ void	red_file(char *map, t_game *game)
 	close(fd);
 }
 
-void    check_file(char *map, size_t size)
+void	check_file(char *map, size_t size)
 {
-    if (size < 4)
-        ft_kill("Map file is too short", NULL);
-    if (ft_strncmp(map + size - 4, ".ber", 4))
-        ft_kill("Map file must have a .ber extension", NULL);
+	if (size < 4)
+		ft_kill("Map file is too short", NULL);
+	if (ft_strncmp(map + size - 4, ".ber", 4))
+		ft_kill("Map file must have a .ber extension", NULL);
 }
 
-void    check_map(int argc, char *map, t_game *game)
+void	check_map(int argc, char *map, t_game *game)
 {
 	int	size;
-	
+
 	if (argc != 2)
 	{
 		if (argc < 2)

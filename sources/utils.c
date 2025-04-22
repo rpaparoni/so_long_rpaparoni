@@ -6,31 +6,29 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/22 17:46:40 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:13:48 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void ft_kill(char *msg, t_game *game)
+void	ft_kill(char *msg, t_game *game)
 {
 	if (game->n_item == 0)
 	{
-	ft_printf("\033[92m\n\t%s\n\n\033[0m", msg);
-    ft_clean(game);
-    exit(EXIT_FAILURE);
+		ft_printf("\033[92m\n\t%s\n\n\033[0m", msg);
+		ft_clean(game);
+		exit(EXIT_FAILURE);
 	}
-    ft_printf("\033[91mError:\n\t%s\n\033[0m", msg);
+	ft_printf("\033[91mError:\n\t%s\n\033[0m", msg);
 	ft_clean(game);
-    exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
-void    ft_clean(t_game *game)
+void	ft_clean(t_game *game)
 {
-        if  (!game)
-        {
-                return;
-        }
+	if (!game)
+		return ;
 	if (game->player)
 		mlx_destroy_image(game->mlx, game->player);
 	if (game->wall)
@@ -52,22 +50,22 @@ void    ft_clean(t_game *game)
 
 int	close_game(t_game *game)
 {
-    ft_kill("Game closed", game);
-    return (0);
+	ft_kill("Game closed", game);
+	return (0);
 }
 
-void    print_moves(t_game *game)
+void	print_moves(t_game *game)
 {
-    ft_printf("\033[95mTotal Moves: %d\n\033[0m", game->n_moves);
-    game->n_moves++;
+	ft_printf("\033[95mTotal Moves: %d\n\033[0m", game->n_moves);
+	game->n_moves++;
 }
 
 void	item_count(t_game *game)
 {
-    game->n_exit_close = 0;
-    game->n_wall = 0;
-    game->n_floor = 0;
-    game->n_item = 0;
-    game->n_player = 0;
+	game->n_exit_close = 0;
+	game->n_wall = 0;
+	game->n_floor = 0;
+	game->n_item = 0;
+	game->n_player = 0;
 	game->n_moves = 1;
 }

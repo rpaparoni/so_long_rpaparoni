@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:04:58 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/17 14:08:38 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/22 18:14:25 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	main(int argc, char *argv[])
 	game.win_height = game.rows * 64;
 	game.win_width = game.columns * 64;
 	game.mlx = mlx_init();
-	game.win = mlx_new_window(game.mlx, game.win_width, game.win_height, "so_long");
+	game.win = mlx_new_window(game.mlx, game.win_width,
+			game.win_height, "so_long");
 	render_game(&game);
 	mlx_key_hook(game.win, hooks, &game);
 	mlx_hook(game.win, 17, 0, close_game, &game);
