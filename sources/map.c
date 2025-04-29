@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/23 00:31:34 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:26:21 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,21 @@ void	check_file(char *map)
 {
 	size_t	size;
 
+	ft_printf("Checking file: %s\n", map);
 	size = ft_strlen(map);
-	if (size < 4 || ft_strncmp(map + size - 4, ".ber", 4) != 0)
-	ft_kill("Map file must have a .ber extension", NULL);
+	if (ft_strncmp(map + size - 4, ".ber", 4) != 0)
+	{
+		ft_printf("\033[91mError:\n\tFile extension must be .ber\n\033[0m");
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	check_map(int argc, char *map, t_game *game)
 {
 	if (argc != 2)
 	{
-		ft_kill("Usage: ./so_long <map_file.ber>", NULL);
+		ft_kill("Usage: ./so_long <map.ber>", NULL);
 	}
-	ft_printf("map = '%s'\n", map);
 	check_file(map);
 	red_file(map, game);
 	if (!check_walls(game))
