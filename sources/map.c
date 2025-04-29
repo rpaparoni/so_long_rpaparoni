@@ -6,11 +6,23 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/29 16:26:21 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:45:16 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	check_file(char *map)
+{
+	size_t	size;
+
+	size = ft_strlen(map);
+	if (ft_strncmp(map + size - 4, ".ber", 4) != 0)
+	{
+		ft_printf("\033[91mError:\n\tFile extension must be .ber\n\033[0m");
+		exit(EXIT_FAILURE);
+	}
+}
 
 int	check_walls(t_game *game)
 {
@@ -64,17 +76,21 @@ void	red_file(char *map, t_game *game)
 	close(fd);
 }
 
-void	check_file(char *map)
+void	check_rute(t_game *game, int x, int y)
 {
-	size_t	size;
-
-	ft_printf("Checking file: %s\n", map);
-	size = ft_strlen(map);
-	if (ft_strncmp(map + size - 4, ".ber", 4) != 0)
-	{
-		ft_printf("\033[91mError:\n\tFile extension must be .ber\n\033[0m");
-		exit(EXIT_FAILURE);
-	}
+	if (x < 0 || x >= game->rows || y < 0 || y >= game->columns)
+		return ;
+	if (game->map[x][y] == '1' || game->map[x][y] == 'F')
+		return ;
+	if (game->map[x][y] == 'E')
+		game->n_exit_close++;
+	if (game->map[x][y] == 'C')
+		game->n_item--;
+	game->map[x][y] = 'F';
+	check_rute(game, x + 1, y);
+	check_rute(game, x - 1, y);
+	check_rute(game, x, y + 1);
+	check_rute(game, x, y - 1);
 }
 
 void	check_map(int argc, char *map, t_game *game)
@@ -85,6 +101,7 @@ void	check_map(int argc, char *map, t_game *game)
 	}
 	check_file(map);
 	red_file(map, game);
+	check_rute(game, game->pos_x / 64, game->pos_y / 64);
 	if (!check_walls(game))
 	{
 		ft_kill("Map is not surrounded by walls", game);

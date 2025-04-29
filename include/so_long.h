@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/29 16:15:34 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:44:14 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void	red_file(char *map, t_game *game);
 void	check_map(int argc, char *map, t_game *game);
 void	ft_clean(t_game *game);
 void	print_moves(t_game *game);
+char	**copy_map(t_game *game);
 
 #endif

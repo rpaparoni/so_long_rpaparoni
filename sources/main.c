@@ -6,12 +6,18 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:04:58 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/29 16:14:26 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:26:27 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minilibx-linux/mlx.h"
 #include "../include/so_long.h"
+
+int	close_game(t_game *game)
+{
+	ft_kill("Game closed", game);
+	return (0);
+}
 
 int	main(int argc, char *argv[])
 {

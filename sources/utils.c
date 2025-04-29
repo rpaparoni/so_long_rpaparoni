@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/22 21:59:14 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:40:03 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,22 @@ void	ft_clean(t_game *game)
 	}
 }
 
-int	close_game(t_game *game)
+char	**copy_map(t_game *game)
 {
-	ft_kill("Game closed", game);
-	return (0);
+	int	i;
+	char	**copy_map;
+
+	i = 0;
+	copy_map = malloc(sizeof(char *) * (game->rows + 1));
+	if (!copy_map)
+		return (NULL);
+	while (game->map[i])
+	{
+		copy_map[i] = ft_strdup(game->map[i]);
+		i++;
+	}
+	copy_map[i] = NULL;
+	return (copy_map);
 }
 
 void	print_moves(t_game *game)
