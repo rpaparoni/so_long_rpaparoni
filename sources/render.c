@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/30 17:32:31 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/30 17:38:43 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	load_images(t_game *game)
 	game->item = mlx_xpm_file_to_image(game->mlx, "./textures/item.xpm",
 			&game->texture_height, &game->texture_width);
 	game->exit = mlx_xpm_file_to_image(game->mlx,
-			"./textures/exit_open.xpm",
+			"./textures/exit.xpm",
 			&game->texture_height, &game->texture_width);
 	item_count(game);
 }
