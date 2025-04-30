@@ -6,24 +6,11 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/29 17:40:03 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/30 15:21:10 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-void	ft_kill(char *msg, t_game *game)
-{
-	if (game->n_item == 0)
-	{
-		ft_printf("\033[92m\n\t%s\n\n\033[0m", msg);
-		ft_clean(game);
-		exit(EXIT_FAILURE);
-	}
-	ft_printf("\033[91mError:\n\t%s\n\033[0m", msg);
-	ft_clean(game);
-	exit(EXIT_FAILURE);
-}
 
 void	ft_clean(t_game *game)
 {
@@ -48,9 +35,24 @@ void	ft_clean(t_game *game)
 	}
 }
 
+void	flood_fill(char **map, int x, int y, t_game *game)
+{
+	if (map[x][y] == '1' || map[x][y] == 'F')
+		return ;
+	if (map[x][y] == 'C')
+		(game->n_item_found)++;
+	if (map[x][y] == 'E')
+		game->n_exit_found = 1;
+	map[x][y] = 'F';
+	flood_fill(map, x + 1, y, game);
+	flood_fill(map, x - 1, y, game);
+	flood_fill(map, x, y + 1, game);
+	flood_fill(map, x, y - 1, game);
+}
+
 char	**copy_map(t_game *game)
 {
-	int	i;
+	int		i;
 	char	**copy_map;
 
 	i = 0;
@@ -64,12 +66,6 @@ char	**copy_map(t_game *game)
 	}
 	copy_map[i] = NULL;
 	return (copy_map);
-}
-
-void	print_moves(t_game *game)
-{
-	ft_printf("\033[95mTotal Moves: %d\n\033[0m", game->n_moves);
-	game->n_moves++;
 }
 
 void	item_count(t_game *game)

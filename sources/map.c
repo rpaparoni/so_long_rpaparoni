@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/29 17:45:16 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/30 15:23:07 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	check_walls(t_game *game)
 	return (1);
 }
 
-void	red_file(char *map, t_game *game)
+void	read_file(char *map, t_game *game)
 {
 	int		fd;
 	char	*line;
@@ -76,21 +76,18 @@ void	red_file(char *map, t_game *game)
 	close(fd);
 }
 
-void	check_rute(t_game *game, int x, int y)
+void	check_rute(t_game *game)
 {
-	if (x < 0 || x >= game->rows || y < 0 || y >= game->columns)
-		return ;
-	if (game->map[x][y] == '1' || game->map[x][y] == 'F')
-		return ;
-	if (game->map[x][y] == 'E')
-		game->n_exit_close++;
-	if (game->map[x][y] == 'C')
-		game->n_item--;
-	game->map[x][y] = 'F';
-	check_rute(game, x + 1, y);
-	check_rute(game, x - 1, y);
-	check_rute(game, x, y + 1);
-	check_rute(game, x, y - 1);
+	char	**copy;
+
+	game->n_item_found = 0;
+	game->n_exit_found = 0;
+	copy = copy_map(game);
+	if (!copy)
+		ft_kill("Error duplicating map", game);
+	flood_fill(copy, game->n_item_found, game->n_exit_found, game);
+	if (game->n_item_found != game->n_item || game->n_exit_found != 1)
+		ft_kill("Unreachable items or exit", game);
 }
 
 void	check_map(int argc, char *map, t_game *game)
@@ -100,8 +97,7 @@ void	check_map(int argc, char *map, t_game *game)
 		ft_kill("Usage: ./so_long <map.ber>", NULL);
 	}
 	check_file(map);
-	red_file(map, game);
-	check_rute(game, game->pos_x / 64, game->pos_y / 64);
+	read_file(map, game);
 	if (!check_walls(game))
 	{
 		ft_kill("Map is not surrounded by walls", game);

@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   msg.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 20:04:58 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/30 13:49:27 by rpaparon         ###   ########.fr       */
+/*   Created: 2025/04/30 13:48:18 by rpaparon          #+#    #+#             */
+/*   Updated: 2025/04/30 13:50:52 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minilibx-linux/mlx.h"
 #include "../include/so_long.h"
 
-int	main(int argc, char *argv[])
+void	print_moves(t_game *game)
 {
-	t_game	game;
+	ft_printf("\033[95mTotal Moves: %d\n\033[0m", game->n_moves);
+	game->n_moves++;
+}
 
-	check_map(argc, argv[1], &game);
-	game.win_height = game.rows * 64;
-	game.win_width = game.columns * 64;
-	game.mlx = mlx_init();
-	game.win = mlx_new_window(game.mlx, game.win_width,
-			game.win_height, "so_long");
-	render_game(&game);
-	mlx_key_hook(game.win, hooks, &game);
-	mlx_hook(game.win, 17, 0, close_game, &game);
-	mlx_loop(game.mlx);
+void	ft_kill(char *msg, t_game *game)
+{
+	if (game->n_item == 0)
+	{
+		ft_printf("\033[92m\n\t%s\n\n\033[0m", msg);
+		ft_clean(game);
+		exit(EXIT_FAILURE);
+	}
+	ft_printf("\033[91mError:\n\t%s\n\033[0m", msg);
+	ft_clean(game);
+	exit(EXIT_FAILURE);
+}
+
+int	close_game(t_game *game)
+{
+	ft_kill("Game closed", game);
 	return (0);
 }

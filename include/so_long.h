@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/29 17:44:14 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/30 15:20:37 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ typedef struct s_game
 	int		rows;
 	int		n_moves;
 	int		n_exit_close;
+	int		n_exit_found;
 	int		n_exit_open;
 	int		n_wall;
 	int		n_floor;
 	int		n_item;
+	int		n_item_found;
 	int		n_player;
 	int		pos_x;
 	int		pos_y;
@@ -55,13 +57,15 @@ void	item_count(t_game *game);
 void	load_images(t_game *game);
 void	place_img(char lettre, int x, int y, t_game *game);
 void	check_letters(t_game *game);
+void	check_rute(t_game *game);
 void	render_game(t_game *game);
 void	ft_kill(char *msg, t_game *game);
 void	check_file(char *map);
-void	red_file(char *map, t_game *game);
+void	read_file(char *map, t_game *game);
 void	check_map(int argc, char *map, t_game *game);
 void	ft_clean(t_game *game);
 void	print_moves(t_game *game);
+void	flood_fill(char **map, int items_found, int exit_found, t_game *game);
 char	**copy_map(t_game *game);
 
 #endif

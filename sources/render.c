@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/22 18:36:07 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:29:30 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,5 @@ void	render_game(t_game *game)
 		i++;
 	}
 	check_letters(game);
+	check_rute(game);
 }

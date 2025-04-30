@@ -6,7 +6,7 @@
 #    By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:42:46 by rpaparon          #+#    #+#              #
-#    Updated: 2025/04/17 14:03:59 by rpaparon         ###   ########.fr        #
+#    Updated: 2025/04/30 13:49:03 by rpaparon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ SOURCES = sources/main.c \
 		  sources/hooks.c \
 		  sources/map.c \
 		  sources/render.c \
-		  sources/utils.c
+		  sources/utils.c \
+		  sources/msg.c \
+		  
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = cc
