@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/30 15:20:37 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/30 17:30:06 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,14 @@ typedef struct s_game
 	void	*wall;
 	void	*floor;
 	void	*item;
-	void	*exit_open;
-	void	*exit_close;
+	void	*exit;
 	char	**map;
 	int		columns;
 	int		rows;
 	int		n_moves;
 	int		n_exit_close;
 	int		n_exit_found;
-	int		n_exit_open;
+	int		n_exit;
 	int		n_wall;
 	int		n_floor;
 	int		n_item;

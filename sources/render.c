@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:33 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/30 14:29:30 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/04/30 17:32:31 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ void	load_images(t_game *game)
 			&game->texture_height, &game->texture_width);
 	game->item = mlx_xpm_file_to_image(game->mlx, "./textures/item.xpm",
 			&game->texture_height, &game->texture_width);
-	game->exit_close = mlx_xpm_file_to_image(game->mlx,
-			"./textures/exit_close.xpm", &game->texture_height,
-			&game->texture_width);
-	game->exit_open = mlx_xpm_file_to_image(game->mlx,
+	game->exit = mlx_xpm_file_to_image(game->mlx,
 			"./textures/exit_open.xpm",
 			&game->texture_height, &game->texture_width);
 	item_count(game);
@@ -58,7 +55,7 @@ void	place_img(char lettre, int x, int y, t_game *game)
 		mlx_put_image_to_window(game->mlx, game->win, game->item,
 			x * 64, y * 64);
 	else if (lettre == 'E')
-		mlx_put_image_to_window(game->mlx, game->win, game->exit_close,
+		mlx_put_image_to_window(game->mlx, game->win, game->exit,
 			x * 64, y * 64);
 	else if (lettre == 'P')
 		mlx_put_image_to_window(game->mlx, game->win, game->player,
