@@ -6,11 +6,17 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:48:18 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/30 13:50:52 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/05/01 12:44:45 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	ft_error(char *msg)
+{
+	ft_printf("\033[91mError:\n\t%s\n\033[0m", msg);
+	exit(EXIT_FAILURE);
+}
 
 void	print_moves(t_game *game)
 {

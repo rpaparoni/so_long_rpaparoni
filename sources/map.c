@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/30 17:31:13 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/05/01 12:48:18 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ void	check_file(char *map)
 	size_t	size;
 
 	size = ft_strlen(map);
-	if (ft_strncmp(map + size - 4, ".ber", 4) != 0)
+	if (ft_strncmp(map + size - 5, ".ber", 5) != 0)
 	{
-		ft_printf("\033[91mError:\n\tFile extension must be .ber\n\033[0m");
-		exit(EXIT_FAILURE);
+		ft_error("File extension must be example.ber");
 	}
 }
 
@@ -56,14 +55,14 @@ void	read_file(char *map, t_game *game)
 	game->rows = 0;
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
-		ft_kill("Map file not found", NULL);
+		ft_error("Map file not found");
 	line = get_next_line(fd);
 	if (!line)
-		ft_kill("Empty map file", NULL);
+		ft_error("Empty map file");
 	game->columns = ft_strlen(line) - 1;
 	map_lines = malloc(sizeof(char *) * 1000);
 	if (!map_lines)
-		ft_kill("Memory allocation failed", NULL);
+		ft_error("Memory allocation failed");
 	while (line != NULL)
 	{
 		map_lines[game->rows] = ft_strdup(line);
@@ -90,12 +89,8 @@ void	check_rute(t_game *game)
 		ft_kill("Unreachable items or exit", game);
 }
 
-void	check_map(int argc, char *map, t_game *game)
+void	check_map(char *map, t_game *game)
 {
-	if (argc != 2)
-	{
-		ft_kill("Usage: ./so_long <map.ber>", NULL);
-	}
 	check_file(map);
 	read_file(map, game);
 	if (!check_walls(game))

@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 20:05:31 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/30 17:30:06 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/05/01 12:44:08 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,11 @@ void	render_game(t_game *game);
 void	ft_kill(char *msg, t_game *game);
 void	check_file(char *map);
 void	read_file(char *map, t_game *game);
-void	check_map(int argc, char *map, t_game *game);
+void	check_map(char *map, t_game *game);
 void	ft_clean(t_game *game);
 void	print_moves(t_game *game);
 void	flood_fill(char **map, int items_found, int exit_found, t_game *game);
+void	ft_error(char *msg);
 char	**copy_map(t_game *game);
 
 #endif
