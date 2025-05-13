@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/05/01 12:48:18 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/05/13 16:55:08 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ void	check_file(char *map)
 	size_t	size;
 
 	size = ft_strlen(map);
-	if (ft_strncmp(map + size - 5, ".ber", 5) != 0)
-	{
-		ft_error("File extension must be example.ber");
-	}
+	if (size <= 4 || ft_strncmp(map + size - 4, ".ber", 4) != 0)
+		ft_error("File extension must be a .ber file");
 }
 
 int	check_walls(t_game *game)
