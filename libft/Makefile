@@ -14,7 +14,7 @@ SOURCES = ft_atoi.c ft_bzero.c ft_isalnum.c \
 		  ft_substr.c \
           ft_printf.c ft_printhex.c ft_printid.c\
           ft_printu.c ft_printp.c \
-          get_next_line.c
+          get_next_line.c get_next_line_utils.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:14:09 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/22 17:51:23 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:11:08 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*stash_filling(int fd, char *stash, char *buffer)
 	int	size;
 
 	size = 1;
-	while (!ft_strchr(stash, '\n') && size > 0)
+	while (!ft_strchr_gnl(stash, '\n') && size > 0)
 	{
 		size = read(fd, buffer, BUFFER_SIZE);
 		if (size < 0)
@@ -25,7 +25,7 @@ char	*stash_filling(int fd, char *stash, char *buffer)
 		if (size == 0)
 			return (free (buffer), stash);
 		buffer[size] = '\0';
-		stash = ft_strjoin(stash, buffer);
+		stash = ft_strjoin_gnl(stash, buffer);
 		if (!stash)
 			return (free (buffer), NULL);
 	}

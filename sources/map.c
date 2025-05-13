@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/05/13 16:55:08 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:49:45 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	read_file(char *map, t_game *game)
 	if (!line)
 		ft_error("Empty map file");
 	game->columns = ft_strlen(line) - 1;
-	map_lines = malloc(sizeof(char *) * 1000);
+	map_lines = malloc(sizeof(char *) * 500);
 	if (!map_lines)
 		ft_error("Memory allocation failed");
 	while (line != NULL)

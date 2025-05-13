@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 17:46:50 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/22 17:58:22 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:12:33 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,12 @@ char	*get_next_line(int fd);
 char	*stash_filling(int fd, char *stash, char *buffer);
 char	*extract_line(char *stash);
 char	*extract_new_stash(char *stash);
+
+//gnl_utils
+
+char	*ft_strdup_gnl(char *s1);
+char	*ft_strchr_gnl(char *s, int c);
+size_t	ft_strlen_gnl(char *s);
+char	*ft_strjoin_gnl(char *s1, char *s2);
 
 #endif
