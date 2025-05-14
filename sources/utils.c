@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/05/14 15:29:19 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/05/14 15:58:48 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ void	free_map(char **map)
 	if (!map)
 		return ;
 	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
+		free(map[i++]);
 	free(map);
 }
 
@@ -31,6 +28,8 @@ void	ft_clean(t_game *game)
 {
 	if (!game)
 		return ;
+	if (game->map)
+		free_map(game->map);
 	if (game->player)
 		mlx_destroy_image(game->mlx, game->player);
 	if (game->wall)
