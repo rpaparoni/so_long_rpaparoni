@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:30:01 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/05/13 18:49:45 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/05/14 15:30:49 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	check_rute(t_game *game)
 	if (!copy)
 		ft_kill("Error duplicating map", game);
 	flood_fill(copy, game->pos_y / 64, game->pos_x / 64, game);
+	free_map(copy);
 	if (game->n_item_found != game->n_item || game->n_exit_found != 1)
 		ft_kill("Unreachable items or exit", game);
 }

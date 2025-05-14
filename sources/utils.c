@@ -6,11 +6,26 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:15:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/04/30 17:30:39 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/05/14 15:29:19 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	if (!map)
+		return ;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
 
 void	ft_clean(t_game *game)
 {
